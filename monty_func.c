@@ -5,6 +5,7 @@
  * @stack: Pointer to the stack top.
  */
 void read_file(char *filename, stack_t **stack)
+void getline();
 {
 	char *line;
 	size_t i = 0;
@@ -22,7 +23,7 @@ void read_file(char *filename, stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 
-	while ((read = parse_line(&var_global.buffer, &i, var_global.file)) != -1)
+	while ((read = getline(&var_global.buffer, &i, var_global.file)) != -1)
 	{
 		line = parse_line(var_global.buffer, stack, line_count);
 		if (line == NULL || line[0] == '#')
