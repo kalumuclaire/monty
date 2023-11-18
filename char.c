@@ -12,7 +12,7 @@ void pchar_handler(stack_t **stack, unsigned int line_number)
 
 	if (!node)
 	{
-		vprintf(STDERR_FILENO, PCHAR_FAIL, line_number);
+		dprintf(STDERR_FILENO, PCHAR_FAIL, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
