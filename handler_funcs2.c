@@ -15,7 +15,7 @@ void sub_handler(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		dprintf(STDERR_FILENO, SUB_FAIL, line_number);
+		vprintf(STDERR_FILENO, SUB_FAIL, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -26,7 +26,7 @@ void sub_handler(stack_t **stack, unsigned int line_number)
 	node = add_dnodeint(stack, sub);
 	if (!node)
 	{
-		dprintf(STDERR_FILENO, MALLOC_FAIL);
+		vprintf(STDERR_FILENO, MALLOC_FAIL);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -46,14 +46,14 @@ void div_handler(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		dprintf(STDERR_FILENO, DIV_FAIL, line_number);
+		vprintf(STDERR_FILENO, DIV_FAIL, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
 
 	if (node_0->n == 0)
 	{
-		dprintf(STDERR_FILENO, DIV_ZERO, line_number);
+		vprintf(STDERR_FILENO, DIV_ZERO, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -64,7 +64,7 @@ void div_handler(stack_t **stack, unsigned int line_number)
 	node = add_dnodeint(stack, div);
 	if (!node)
 	{
-		dprintf(STDERR_FILENO, MALLOC_FAIL);
+		vprintf(STDERR_FILENO, MALLOC_FAIL);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -84,7 +84,7 @@ void mul_handler(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		dprintf(STDERR_FILENO, MUL_FAIL, line_number);
+		vprintf(STDERR_FILENO, MUL_FAIL, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -95,7 +95,7 @@ void mul_handler(stack_t **stack, unsigned int line_number)
 	node = add_dnodeint(stack, mul);
 	if (!node)
 	{
-		dprintf(STDERR_FILENO, MALLOC_FAIL);
+		vprintf(STDERR_FILENO, MALLOC_FAIL);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -115,14 +115,14 @@ void mod_handler(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		dprintf(STDERR_FILENO, MOD_FAIL, line_number);
+		vprintf(STDERR_FILENO, MOD_FAIL, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
 
 	if (node_0->n == 0)
 	{
-		dprintf(STDERR_FILENO, DIV_ZERO, line_number);
+		vprintf(STDERR_FILENO, DIV_ZERO, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -133,7 +133,7 @@ void mod_handler(stack_t **stack, unsigned int line_number)
 	node = add_dnodeint(stack, mod);
 	if (!node)
 	{
-		dprintf(STDERR_FILENO, MALLOC_FAIL);
+		vprintf(STDERR_FILENO, MALLOC_FAIL);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}

@@ -54,7 +54,7 @@ void push_handler(stack_t **stack, unsigned int line_number)
 
 	if (data.words[1] == NULL)
 	{
-		dprintf(STDERR_FILENO, PUSH_FAIL, line_number);
+		vprintf(STDERR_FILENO, PUSH_FAIL, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
@@ -63,7 +63,7 @@ void push_handler(stack_t **stack, unsigned int line_number)
 	{
 		if (isalpha(data.words[1][i]) != 0)
 		{
-			dprintf(STDERR_FILENO, PUSH_FAIL, line_number);
+			vprintf(STDERR_FILENO, PUSH_FAIL, line_number);
 			free_all(1);
 			exit(EXIT_FAILURE);
 		}
@@ -76,7 +76,7 @@ void push_handler(stack_t **stack, unsigned int line_number)
 		new = add_dnodeint_end(stack, num);
 	if (!new)
 	{
-		dprintf(STDERR_FILENO, MALLOC_FAIL);
+		vprintf(STDERR_FILENO, MALLOC_FAIL);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
