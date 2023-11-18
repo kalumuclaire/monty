@@ -1,13 +1,15 @@
 #include "monty.h"
 #include "lists.h"
 
+data_t data = DATA_INIT;
+
 /**
  * monty - Helper function for main function.
  * @args: Pointer to structure of arguments from the main.
  *
- * Description: Opens file and begins reading from the file
- * that has the opcodes, also calls a function
- * that will find the related executing function.
+ * Description: Opens and reads from the file
+ * containing the opcodes, and calls the function
+ * that will find the corresponding executing function.
  */
 void monty(args_t *args)
 {
@@ -23,13 +25,13 @@ void monty(args_t *args)
 	data.fptr = fopen(args->av, "r");
 	if (!data.fptr)
 	{
-		vprintf(STDERR_FILENO, FILE_ERROR, args->av);
+		dprintf(STDERR_FILENO, FILE_ERROR, args->av);
 		exit(EXIT_FAILURE);
 	}
 	while (1)
 	{
 		args->line_number++;
-
+		get = getline(&(data.line), &len, data.fptr);
 		if (get < 0)
 			break;
 		data.words = strtow(data.line);
@@ -53,8 +55,8 @@ void monty(args_t *args)
 
 /**
  * main - Entry point for the bytecode interpreter (monty).
- * @argc: Amount of arguments.
- * @argv: Argument’s array.
+ * @argc: Quantity of arguments
+ * @argv: Argument's array.
  *
  * Return: EXIT_SUCCESS or EXIT_FAILURE
  */

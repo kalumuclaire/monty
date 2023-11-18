@@ -77,7 +77,7 @@ extern data_t data;
 #define DATA_INIT {NULL, NULL, NULL, NULL, 0}
 
 #define USAGE "USAGE: monty file\n"
-#define FILE_ERROR "Error: Can't open file %s\n"
+#define FILE_ERROR "char * Error: Can't open file %s\n"
 #define UNKNOWN "L%u: unknown instruction %s\n"
 #define MALLOC_FAIL "Error: malloc failed\n"
 #define PUSH_FAIL "L%u: usage: push integer\n"
