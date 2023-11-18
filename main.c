@@ -31,7 +31,7 @@ void monty(args_t *args)
 	while (1)
 	{
 		args->line_number++;
-		get = getline(&(data.line), &len, data.fptr);
+
 		if (get < 0)
 			break;
 		data.words = strtow(data.line);
