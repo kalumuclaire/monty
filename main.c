@@ -23,13 +23,13 @@ void monty(args_t *args)
 	data.fptr = fopen(args->av, "r");
 	if (!data.fptr)
 	{
-		dprintf(STDERR_FILENO, FILE_ERROR, args->av);
+		vprintf(STDERR_FILENO, FILE_ERROR, args->av);
 		exit(EXIT_FAILURE);
 	}
 	while (1)
 	{
 		args->line_number++;
-		get = getline(&(data.line), &len, data.fptr);
+
 		if (get < 0)
 			break;
 		data.words = strtow(data.line);
