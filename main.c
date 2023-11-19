@@ -1,73 +1,33 @@
-#define _POSIX_C_SOURCE 200809L
-
 #include "monty.h"
-#include "lists.h"
-
 /**
- * monty - Helper function for main function.
- * @args: Pointer to structure of arguments from the main.
- *
- * Description: Opens and reads from the file
- * containing the opcodes, and calls the function
- * that will find the corresponding executing function.
+ * main - main function of developing a translator for Monty ByteCodes files
+ * @argc: arg count
+ * @argv: args
+ * Return: always 0
  */
-void monty(args_t *args)
+int main(int argc, char **argv)
 {
-	int get = 0;
-	void (*code_func)(stack_t **, unsigned int);
+	char *buffer;
+	FILE *fd;
+	int line = 0;
+	size_t l = 1024, gt = 0;
+	stack_t *a = NULL;
 
-	if (args->ac != 2)
-	{
-		dprintf(STDERR_FILENO, USAGE);
-		exit(EXIT_FAILURE);
-	}
-	data.fptr = fopen(args->av, "r");
-	if (!data.fptr)
-	{
-		dprintf(STDERR_FILENO, FILE_ERROR, args->av);
-		exit(EXIT_FAILURE);
-	}
+	gl.mode = 's';
+	if (argc != 2)
+		erroargv();
+	fd = read_textfile(argv[1]);
+	buffer = malloc(1024);
 	while (1)
 	{
-		args->line_number++;
-
-		if (get < 0)
+		gt = getline(&buffer, &l, fd);
+		if (gt == (size_t) -1)
 			break;
-		data.words = strtow(data.line);
-		if (data.words[0] == NULL || data.words[0][0] == '#')
-		{
-			free_all(0);
-			continue;
-		}
-		code_func = get_func(data.words);
-		if (!code_func)
-		{
-			dprintf(STDERR_FILENO, UNKNOWN, args->line_number, data.words[0]);
-			free_all(1);
-			exit(EXIT_FAILURE);
-		}
-		code_func(&(data.stack), args->line_number);
-		free_all(0);
+		line++;
+		buffer[gt - 1] = '\0';
+		if (isEmpty(buffer) == 0 && buffer[0] != '\0')
+			get_command(buffer, line, &a, fd);
 	}
-	free_all(1);
-}
-
-/**
- * main - Entry point for the bytecode interpreter (monty).
- * @argc: Quantity of arguments
- * @argv: Argument's array.
- *
- * Return: EXIT_SUCCESS or EXIT_FAILURE
- */
-int main(int argc, char *argv[])
-{
-	args_t args;
-
-	args.av = argv[1];
-	args.ac = argc;
-	args.line_number = 0;
-
-	monty(&args);
-
-	return (EXIT_SUCCESS);
+	free(buffer), free_list(a), fclose(fd);
+	return (0);
 }
