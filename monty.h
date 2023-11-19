@@ -11,6 +11,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#define QUEUE 1
+#define STACK 0
+#define DELIM " \n\t\a\b"
+
 /**
  * struct global_s - global
  * @n: integer.

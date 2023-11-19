@@ -2,7 +2,7 @@
 global_t gl;
 /**
  * _push - Push function.
- * @stack: Head.
+ * @stack: stack
  * @line_number: Line num
  * Return: Void.
  */
@@ -26,7 +26,7 @@ void _push(stack_t **stack, unsigned int line_number)
 }
 /**
  * add_nodo - Function used to push.
- * @stack: stack Head.
+ * @stack: stack
  * @a: Line num
  * Return: Void.
  */

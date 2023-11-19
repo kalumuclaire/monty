@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * _pall - Prints all elements in the list stack_t.
- * @stack: Stack head.
- * @line_number: Line_num
+ * _pall - prints all elements in the list stack_t.
+ * @stack: head
+ * @line_number: shows the number of the line
  * Return: Void.
  */
 void _pall(stack_t **stack, unsigned int line_number)
