@@ -1,5 +1,5 @@
 #include "monty.h"
-
+global_t gl;
 /**
  * _push - Push function.
  * @stack: Head.

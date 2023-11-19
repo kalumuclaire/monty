@@ -1,6 +1,6 @@
 #include "monty.h"
 
-
+global_t gl;
 /**
  * _pop - Eliminates the top stack element
  * @stack: Stack Head

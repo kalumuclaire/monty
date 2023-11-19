@@ -1,4 +1,5 @@
 #include "monty.h"
+global_t gl;
 /**
  * main - main function of developing a translator for Monty ByteCodes files
  * @argc: arg count

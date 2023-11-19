@@ -1,6 +1,6 @@
 #include "monty.h"
 
-
+global_t gl;
 /**
  * _nop - It does nothing.
  * @stack: Stack head.

@@ -1,4 +1,6 @@
 #include "monty.h"
+
+global_t gl;
 /**
  * _mod - this function is for top two elements mod
  * @stack: stack head

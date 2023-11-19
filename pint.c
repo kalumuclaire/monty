@@ -1,5 +1,6 @@
 #include "monty.h"
 
+global_t gl;
 /**
  * _pint - Prints the top of the stack value, a new line next.
  * @stack: Stack head.

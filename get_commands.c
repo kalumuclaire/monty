@@ -1,4 +1,5 @@
 #include "monty.h"
+global_t gl;
 /**
  * get_command - function for geT_command
  * @buffer: buffer

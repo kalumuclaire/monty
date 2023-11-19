@@ -1,5 +1,6 @@
 #include "monty.h"
 
+global_t gl;
 /**
  * _swap - It swaps the first two elements of the stack.
  * @stack: head.

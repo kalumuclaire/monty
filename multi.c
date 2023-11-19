@@ -1,5 +1,6 @@
 #include "monty.h"
 
+global_t gl;
 /**
  * _mul - Adds together the top two stack elements.
  * @stack: Stack head.

@@ -1,5 +1,6 @@
 #include "monty.h"
 
+global_t gl;
 /**
  * _add - this function adds the top two elements
  * @stack: stack head
@@ -24,3 +25,4 @@ void _add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+

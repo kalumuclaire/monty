@@ -1,5 +1,6 @@
 #include "monty.h"
 
+global_t gl;
 /**
  * _div - this function div the top two elements of the stack.
  * @stack: stack head

@@ -1,5 +1,6 @@
 #include "monty.h"
 
+global_t gl;
 /**
  * _sub - Sums up the first two elements of the stack.
  * @stack: stack.
